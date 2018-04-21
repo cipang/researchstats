@@ -65,4 +65,4 @@ target/
 
 celerybeat-schedule
 
-data/
+data/plant_growth.csv
