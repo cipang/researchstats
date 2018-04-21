@@ -11,7 +11,7 @@ def do_anova(label: str, data: pd.DataFrame, col_group: str, col_value: str) -> 
     groups = pd.unique(data[col_group]).tolist()
     k = len(groups)  # number of conditions
     N = len(data[col_value])  # conditions * participants
-    n = data.groupby(col_group).size()[0]  # Participants in each condition
+    n = data.groupby(col_group).size().iloc[0]  # Participants in each condition
 
     DFbetween = k - 1
     DFwithin = N - k
