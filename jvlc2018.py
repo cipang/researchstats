@@ -31,3 +31,19 @@ results = do_anova("Help All", data_helpful, "vis_type", "value")
 for g in groups:
     results = results.append(do_anova(f"Help {g}", data_helpful[data_helpful.group == g], "vis_type", "value"))
 print(results.to_string())
+
+# Run ANOVA for speed.
+print()
+data_speed = pd.read_csv(get_data_file_path("maplike_treemap_speed.csv"))
+results = do_anova("Sped All", data_speed, "vis_type", "value")
+for g in groups:
+    results = results.append(do_anova(f"Sped {g}", data_speed[data_speed.group == g], "vis_type", "value"))
+print(results.to_string())
+
+# Run ANOVA for accuracy.
+print()
+data_accuracy = pd.read_csv(get_data_file_path("maplike_treemap_accuracy.csv"))
+results = do_anova("Accy All", data_accuracy, "vis_type", "value")
+for g in groups:
+    results = results.append(do_anova(f"Accy {g}", data_accuracy[data_accuracy.group == g], "vis_type", "value"))
+print(results.to_string())
